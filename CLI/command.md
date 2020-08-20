@@ -6,6 +6,9 @@ command line interface 명령어를 정리합니다.
 
 ```
 
+#### pwd
+
+print working diractory : 작업위치 확인
 
 
 #### ls
@@ -17,8 +20,6 @@ ls #숨김폴더는 출력안함
 ls -a #숨김폴더, 파일까지 모두 출력.
 ```
 
-
-
 #### CD
 
 change directory의 약자로 폴더를 이동하는 명령어입니다.
@@ -27,9 +28,21 @@ change directory의 약자로 폴더를 이동하는 명령어입니다.
 cd <PATH> # 이동하고 싶은 폴더를 PATH에 입력
 ```
 
+#### 파일 및 폴더 생성
+
+```shell
+mkdir <PATH> # : 폴더생성
+touch <PATH> # : 파일생성
+```
 
 
+#### 초기화 및 변화확인
 
+```shell
+init <PATH> : 초기화
+diff <PATH> : 변화확인
+log <PATH> : 변화내용확인
+```
 
 #### 생성
 
