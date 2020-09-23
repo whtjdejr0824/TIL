@@ -34,7 +34,5 @@ int main() {
 
 ```
 
-#### 
-
 출처 : [어소트락 게임아카데미 유튜브](https://www.youtube.com/watch?v=WZLkdz277DA&lc=z23ddnnabtufupoa204t1aokg1idllo2fqcjxpjosne2bk0h00410)
 
