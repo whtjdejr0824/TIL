@@ -21,6 +21,29 @@ public class PrimitiveDataTypeExam {
         System.out.println(i1);
         System.out.println(i2);
         System.out.println(i3);
-        
+
+        int i4 = ++i3; // i3 = i3+1;
+        System.out.println(i4);
+        System.out.println(i3); i3 = i3 + 1;
+        int i5 = i3++;
+        System.out.println(i5);
+
+        int i = 5;
+        int j = 2;
+
+        System.out.println(i + j);
+        System.out.println(i - j);
+        System.out.println(i * j);
+        System.out.println(i / j);
+        System.out.println(i / (double)j);
+        System.out.println(i % j);
+
+
+        int intValue = 200;
+        //빈칸에 long타입 변수 longValue를 선언하고 변수를 intValue를 이용해 초기화해보세요.
+        long longValue = intValue;
+
+        System.out.println(longValue);
+
     }
 }
