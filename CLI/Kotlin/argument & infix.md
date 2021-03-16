@@ -98,3 +98,7 @@ infix fun Int.multiply(x: Int): Int = this*x
 ```
 
 class안에서 infix 함수를 선언할 때에는 적용할 클래스가 자기 자신이므로, `infix fun multiply(x: Int): Int = this*x`
+
+
+
+코틀린은 많은 언어들이 지원하는 함수의 다양한 편의기능을 거의 대부분 가지고 있음
