@@ -59,3 +59,5 @@ while True:
         break
 
     prev_height = curr_height
+    
+print("스크롤 완료")
