@@ -74,5 +74,13 @@ print(len(movies))
     price = movie.find("span", attrs={"class":"VfPpfd ZdBevf i5DZme"})
 
     # 링크
-    link = movie.find("a", attrs={"class":"JC71ub"})
+    link = movie.find("a", attrs={"class":"JC71ub"})["href"]
+    # 올바른 링크 : https://play.google.com + link
 
+    print(f"제목 : {title}")
+    print(f"할인 전 금액 : {original_price}")
+    print(f"할인 후 금액 : {price}")
+    print(f"링크 : ", "https://play.google.com" + link)
+    print("-" * 120)
+
+browser.quit()
