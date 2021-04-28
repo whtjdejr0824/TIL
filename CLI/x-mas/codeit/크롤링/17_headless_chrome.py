@@ -1,8 +1,13 @@
 from selenium import webdriver
-browser = webdriver.Chrome()
+
+options = webdriver.ChromeOptions()
+options.headers =True
+options.add_argument("window-size=1920x1000")
+
+browser = webdriver.Chrome(options=options)
 browser.maximize_window() 
 
-# 페
+# 페이지 이동
 # url = "http://play.google.com/store/movies/top"
 browser.get(url)
 
