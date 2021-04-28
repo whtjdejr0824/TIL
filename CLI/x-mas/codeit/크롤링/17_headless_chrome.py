@@ -2,7 +2,7 @@ from selenium import webdriver
 browser = webdriver.Chrome()
 browser.maximize_window() 
 
-# 페이지 이동
+# 페
 # url = "http://play.google.com/store/movies/top"
 browser.get(url)
 
