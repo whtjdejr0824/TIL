@@ -33,7 +33,7 @@ while True:
     # 페이지 로딩 대기
     time.sleep(interval)
 
-    # 스크롤을 가장 아래로 내림
+    # 현재 문서 높이를 가져와서 저장
     curr_height = browser.execute_script("window.scroollTo(0, document.body.scrolHeight)")
     if curr_height == prev_height:
         break
@@ -41,7 +41,7 @@ while True:
     prev_height = curr_height
     
 print("스크롤 완료")
-
+browser.get_screenhot_as_file("google_movie.png")
 
 import requests
 from bs4 import BeautifulSoup
