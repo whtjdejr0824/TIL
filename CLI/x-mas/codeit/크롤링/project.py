@@ -14,6 +14,12 @@ def scrape_weather():
     res = requests.get(url)
     res.raise_for_status()
     soup = BeautifulSoup(res.text, "lxml")
+    # 흐림, 어제보다 00 높아요.
+    cast = soup.find("p", attrs={"class":"cast_txt"}).get_text()
+    # 현재 OOC (최저 OO / 최고 OO)
+    curr_temp = soup.find("p", attrs={"class":"info_temperature"}).get_text().replace("도씨", "")
+    min_temp = None
+    max_temp = None
 
 if __name__ == "__main__":
     scrape_weather() # 오늘의 날씨 정보 가져오기
