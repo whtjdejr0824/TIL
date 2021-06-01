@@ -24,11 +24,21 @@ def scrape_weather():
     morning_rain_rate = soup.find("span", attrs={"class":"point_time morning"}).get_text().strip() # 오전 강수확률
     afternoon_rain_rate = soup.find("span", attrs={"class":"point_time afternoon"}).get_text().strip # 오후 강수확률
 
+    # 미세먼지 OO좋음
+    # 초미세먼지 OO 좋음
+    dust = soup.find("dl", attrs={"class":"indicator"})
+    pm10 = dust.find_all("dd")[0].get_text() # 미세먼지
+    pm25 = dust.find_all("dd")[1].get_text() # 초미세먼지
 
     # 출력
     print(cast)
     print("현재 {} (최저 {} / 최고 {})".format(curr_temp, min_temp, max_temp))
     print("오전 {} / 오후 {}".format(morning_rain_rate,afternoon_rain_rate))
+    print()
+    print("미세먼지 {}".format(pm10))
+    print("초미세먼지 {}".format(pm10))
+    print()
+   
 
 if __name__ == "__main__":
     scrape_weather() # 오늘의 날씨 정보 가져오기
