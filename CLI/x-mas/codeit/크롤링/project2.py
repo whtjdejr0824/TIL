@@ -7,6 +7,10 @@ def create_soup(url):
     soup = BeautifulSoup(res.text, "lxml")
     return soup
 
+def print_news(index, title, link):
+    print("{}. {}".format(index+1, title))
+    print("  (링크 : {})".format(link))
+
 
 def scrape_weather():
     print("[오늘의 날씨]")
@@ -55,12 +59,32 @@ def scrape_headline_news():
     for index, news in enumerate(news_list):
         title = news.find("a").get_text.strip()
         link = url + news.find("a")["href"]
-        print("{}. {}".format(index+1, title))
-        print("링크 : {})". format(link))
+        # print("{}. {}".format(index+1, title))
+        # print("링크 : {})". format(link))
+        print_news(index, title, link)
+    print()
+
+# [IT 뉴스]
+# 1. 무슨 무슨 일이...
+#  (링크 : https://...)
+# 2. 어떤 어떤 일이...
+#  (링크 : https://...)
+# 3. 이런 저런 일이...
+#  (링크 : https://...)
+
+def scrape_it_news():
+    print("[IT 뉴스]")
+    url = "https://news.naver.com/main/list.nhn?mode=LS2D&mid=shm&sid1=105&sid2=230"
+    soup = create_soup(url)
+    news_list = soup.find("ul", attrs={"class":"type06_headline"}).find_all("li", limit=3) # 3개까지
+    for index, news in enumerate(news_list):
+        title = news.find("a").get_text().strip()
+        link = news.find("a")["href"]
+        print_news(index, title, link)
     print()
 
 
 
 if __name__ == "__main__":
-    scrape_weather() # 오늘의 날씨 정보 가져오기
-    scrape_headline_news()
+    # scrape_weather() # 오늘의 날씨 정보 가져오기
+    # scrape_headline_news() # 헤드라인 뉴스 정보 가져오기
