@@ -78,7 +78,12 @@ def scrape_it_news():
     soup = create_soup(url)
     news_list = soup.find("ul", attrs={"class":"type06_headline"}).find_all("li", limit=3) # 3개까지
     for index, news in enumerate(news_list):
-        title = news.find("a").get_text().strip()
+        a_idx = 0
+        img = news.find("img")
+        if img:
+            a_idx = 1 # img 태그가 있으면 1번째 img 태그의 정보를 사용
+        
+        title = news.find_all("a")[a_idx].get_text().strip()
         link = news.find("a")["href"]
         print_news(index, title, link)
     print()
