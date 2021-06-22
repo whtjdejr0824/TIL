@@ -25,4 +25,10 @@ a1.border = thin_bordar
 b1.border = thin_bordar
 c1.border = thin_bordar
 
+# 90 점 넘는 셀에 대해서 초록색으로 적용
+for row in ws.rows:
+    for cell in row:
+        if cell.column == 1: # A 번호열은 제외
+           continue
+
 wb.save("sample_style.xlsx")
