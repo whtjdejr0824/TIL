@@ -40,4 +40,7 @@ for row in ws.rows:
             cell.font = Font(color="FF0000") # 폰트 색상 변경
 
 
+# 틀 고정
+ws.freeze_panes = "B2" # B2 기준으로 틀 고정
+
 wb.save("sample_style.xlsx")
