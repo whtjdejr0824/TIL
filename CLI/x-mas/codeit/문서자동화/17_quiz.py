@@ -57,4 +57,16 @@ scores = [
 for s in scores: # 기종 성적 데이터 넣기
  ws.append(s)
  
+# 1. 퀴즈2 점수를 10 으로 수정
+for idx, cell in enumerate(ws["D"]):
+    if idx == 0: # 제목인 경우 skip
+        continue
+    cell.value = 10
+        
+
+# 2. H열에 총점(SUM 이용), I열에 성적 정보 추가
+# - 총점 90 이상 A, 80 이상 B, 70 이상 C, 나머지 D
+# 3. 출석이 5 미만인 학생은 총점 상관없이 F    
+    
+    
  ws.save("scores.xlsx")
