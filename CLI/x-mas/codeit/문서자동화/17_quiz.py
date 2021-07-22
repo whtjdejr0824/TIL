@@ -76,8 +76,18 @@ for idx, score in enumerate(scores, start=2):
     sum_val = sum(score[1:]) - score[3] + 10 # 총점
     ws.cell(row=idx, column=8).vakye = "=SUM(B{}:G{})".format(idx, idx)
     # SUM(B2:G2)
-    # SUM(B3:G3) ...s
+    # SUM(B3:G3) ...
     
+    # - 총점 90 이상 A, 80 이상 B, 70 이상 C, 나머지 D
+    grade = None # 성적
+    if sum_val >= 90:
+        grade = "A"
+    elif sum_val >= 80:
+        grade = "B"
+    elif sum_val >= 70:
+        grade = "C"    
+    else: 
+        grade ="D"
 
 # 3. 출석이 5 미만인 학생은 총점 상관없이 F    
     
