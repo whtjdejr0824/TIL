@@ -89,7 +89,10 @@ for idx, score in enumerate(scores, start=2):
     else: 
         grade ="D"
 
-# 3. 출석이 5 미만인 학생은 총점 상관없이 F    
+    # 3. 출석이 5 미만인 학생은 총점 상관없이 F
+    if score[1] < 5:
+        grade = "F"
     
+    ws.cell(row=idx, column=9).value = grade # I 열에 성적 정보
     
  ws.save("scores.xlsx")
