@@ -31,3 +31,10 @@ pyautogui.moveTo(trash_icon)
 # pyautogui.mouseInfo()
 # 1488, 623
 # 1881, 760        
+
+# 3. 정확도 조정run_btn = pyautogui.lacateOnScreen("run_btn.png")
+# pyautogui.moveTo("run_btn.png", confidence=0.9) # 90%
+# pyautogui.moveTo(run_btn)
+
+# 자동화 대상이 바로 보여지지 않는 경우
+
