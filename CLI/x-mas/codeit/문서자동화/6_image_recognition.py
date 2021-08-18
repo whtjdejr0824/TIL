@@ -21,8 +21,8 @@ import pyautogui
 
 # 속도 개선
 # 1. GrayScale
-trash_icon = pyautogui.locateOnScreen("trash_icon.png", grayscale=True)
-pyautogui.moveTo(trash_icon)
+# trash_icon = pyautogui.locateOnScreen("trash_icon.png", grayscale=True)
+# pyautogui.moveTo(trash_icon)
 
 # 2. 범위 지정
 # trash_icon = pyautogui.locateOnScreen("trash_icon.png", region=(1488, 623, 1881 - 1488, 760)
@@ -37,4 +37,26 @@ pyautogui.moveTo(trash_icon)
 # pyautogui.moveTo(run_btn)
 
 # 자동화 대상이 바로 보여지지 않는 경우
+file_menu_notepad = pyautogui.locateOnScreen("file_menu_notepad.png")
+# if file_menu_notepad:
+#    pyautogui.click(file_menu_notepad)
+# else:
+#    print("발견 실패")
 
+# pyautogui.click(file_menu_notepad)
+
+# 2. 일정 시간동안 기다리기 (TimeOut)
+import time
+import sys
+
+timeout = 10 # 10초 대기
+start = time.time() # 시작 시간 설정
+file_menu_notepad = None
+while file_menu_notepad is None:
+    file_menu_notepad = pyautogui.locateOnScreen("file_menu_notepad.png")
+    end = time.time() # 종료 시간 설정
+    if end - start > timeout: # 지정한 10초를 초과하면
+      print("시간 종료")
+      sys.exit()
+      
+pyautogui.click(file_menu_notepad)
