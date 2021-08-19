@@ -50,13 +50,30 @@ import time
 import sys
 
 timeout = 10 # 10초 대기
-start = time.time() # 시작 시간 설정
-file_menu_notepad = None
-while file_menu_notepad is None:
-    file_menu_notepad = pyautogui.locateOnScreen("file_menu_notepad.png")
-    end = time.time() # 종료 시간 설정
-    if end - start > timeout: # 지정한 10초를 초과하면
-      print("시간 종료")
-      sys.exit()
-      
-pyautogui.click(file_menu_notepad)
+# start = time.time() # 시작 시간 설정
+# file_menu_notepad = None
+# while file_menu_notepad is None:
+#     file_menu_notepad = pyautogui.locateOnScreen("file_menu_notepad.png")
+#     end = time.time() # 종료 시간 설정
+#     if end - start > timeout: # 지정한 10초를 초과하면
+#       print("시간 종료")
+#       sys.exit()
+def find_target(img_file, timeout=30):
+  start = time.time()
+  target = None
+  while target is None:
+    target = pyautogui.locateOnScreen(img_file)
+    end = time.time()
+    if end - start > timeout:
+      break
+  return target
+
+def my_click(img_file, timeout=30):
+  target = find_target(img_file, timeout)
+  if target:
+    pyautogui.click(target)
+  else:
+    print("f[Timeout {timeout}s] Target not found ({img_file}). Terminate program.")
+    sys.exit()
+    
+# pyautogui.click(file_menu_notepad)
